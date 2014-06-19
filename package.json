@@ -1,0 +1,27 @@
+{
+  "name": "decodethis",
+  "version": "0.1.0",
+  "description": "Test your browsers' WebAudio Decoder",
+  "main": "app.min.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/notthetup/decodethis.git"
+  },
+  "keywords": [
+    "audio",
+    "webaudio",
+    "decode"
+  ],
+  "author": "Chinmay Pendharkar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/notthetup/decodethis/issues"
+  },
+  "devDependencies": {
+    "gulp": "~3.8.1",
+    "browserify": "~4.1.11"
+  }
+}
