@@ -6,7 +6,7 @@ DecodeThis - Test your browsers' WebAudio Decoder
 
 ## Work in Progress
 
-<insert animated gif of a man shoveling>
+&lt;insert animated gif of a man shoveling&gt;
 
 
 ## How do I do this?
