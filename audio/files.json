@@ -1,0 +1,24 @@
+{
+	"files": [
+	{
+		"filename" : "sine.wav",
+		"description" : "A 44kHz 16bit WAV file",
+		"type" : "wav",
+		"bitdepth" : "16",
+		"samplingrate" : "44100",
+		"length" : "100",
+		"kbps" : "1411",
+		"channels" : "2"
+	},
+	{
+		"filename" : "sine.wav",
+		"description" : "A 44kHz 16bit WAV file",
+		"type" : "wav",
+		"bitdepth" : "16",
+		"samplingrate" : "44100",
+		"length" : "100",
+		"kbps" : "1411",
+		"channels" : "2"
+	}
+	]
+}

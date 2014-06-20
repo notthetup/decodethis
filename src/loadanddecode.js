@@ -10,7 +10,7 @@
 */
 function loadanddecode(URL, onLoadCallback, onProgressCallback, audioContext){
     if (!audioContext){
-        window.AudioContext = window.AudioContext || window.webkitAudioContext
+        window.AudioContext = window.AudioContext || window.webkitAudioContext;
         audioContext = new AudioContext();
     }
     var request = new XMLHttpRequest();
@@ -28,11 +28,11 @@ function loadanddecode(URL, onLoadCallback, onProgressCallback, audioContext){
     request.onerror = function(){
         if (typeof onLoadCallback === 'function')
             onLoadCallback(new Error("Loading Error"), null);
-    }
+    };
     request.onprogress = function(event){
         if (typeof onProgressCallback === 'function'){
             onProgressCallback(event);
         }
-    }
+    };
     request.send();
 }
