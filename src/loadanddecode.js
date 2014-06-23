@@ -17,22 +17,29 @@ function loadanddecode(URL, onLoadCallback, onProgressCallback, audioContext){
     request.open('GET', URL, true);
     request.responseType = 'arraybuffer';
     request.onload = function () {
-        audioContext.decodeAudioData(request.response, function(buffer){
-            if (typeof onLoadCallback === 'function')
-                onLoadCallback(null, buffer);
-        },function (){
-            if (typeof onLoadCallback === 'function')
-                onLoadCallback(new Error("Decoding Error"), null);
-        });
-    };
-    request.onerror = function(){
-        if (typeof onLoadCallback === 'function')
-            onLoadCallback(new Error("Loading Error"), null);
-    };
-    request.onprogress = function(event){
-        if (typeof onProgressCallback === 'function'){
-            onProgressCallback(event);
+        if (request.status === 200 || request.status === 304){
+            audioContext.decodeAudioData(request.response, function(buffer){
+                if (typeof onLoadCallback === 'function')
+                    onLoadCallback(null, buffer);
+            },function (){
+                if (typeof onLoadCallback === 'function')
+                    onLoadCallback(new Error("Decoding Error"), null);
+            });
+        }else{
+            if (typeof onLoadCallback === 'function'){
+                onLoadCallback(new Error("Loading Error : " + request.status), null);
+            }
         }
     };
-    request.send();
+    request.onerror = function(){
+        if (typeof onLoadCallback === 'function'){
+           onLoadCallback(new Error("Loading Error : " + request.status), null);
+       }
+   };
+   request.onprogress = function(event){
+    if (typeof onProgressCallback === 'function'){
+        onProgressCallback(event);
+    }
+};
+request.send();
 }

@@ -11,7 +11,7 @@
 		"channels" : "2"
 	},
 	{
-		"filename" : "sine.wav",
+		"filename" : "sinemono.wav",
 		"description" : "A 44kHz 16bit WAV file",
 		"type" : "wav",
 		"bitdepth" : "16",

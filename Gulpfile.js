@@ -26,4 +26,9 @@ gulp.task('webserver', function() {
   connect.server();
 });
 
-gulp.task('default', ['lint','compile','webserver']);
+// Rerun the task when a file changes
+gulp.task('watch', function() {
+  gulp.watch(paths.scripts, ['lint','compile']);
+});
+
+gulp.task('default', ['lint','compile','webserver', 'watch']);
