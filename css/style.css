@@ -1,0 +1,23 @@
+html,body {
+	height: 100%;
+	margin: 0;
+	background-color: #E5E5E5;
+	font-family: 'RobotoDraft', sans-serif;
+}
+
+.test {
+	background-color: #ccc;
+	padding: 4px;
+	margin: 12px;
+}
+
+.test div {
+	background-color: white;
+	padding: 12px;
+	margin: 4px;
+}
+
+test-tabs::shadow #results {
+	width: 40%;
+	max-width: initial;
+}
