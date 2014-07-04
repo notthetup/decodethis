@@ -46,21 +46,34 @@ window.addEventListener('load', function(){
 
 	function createTestRow(test){
 
-		var rowElement = document.createElement("div");
+		var rowElement = document.createElement("tr");
+		rowElement.className = "test";
 		rowElement.id = test.data.filename;
 
+		var tableData = document.createElement("td");
 		var startButton = document.createElement("button");
 		startButton.innerHTML = '▶';
-		startButton.id = "startbutton";
+		startButton.id = "startButton";
+		tableData.appendChild(startButton);
+		rowElement.appendChild(tableData);
 
+		tableData = document.createElement("td");
 		var nameElement = document.createElement("div");
 		nameElement.innerHTML = test.data.filename;
+		tableData.appendChild(nameElement);
+		rowElement.appendChild(tableData);
 
+		tableData = document.createElement("td");
 		var progressElement = document.createElement("div");
 		progressElement.innerHTML = "0%";
+		tableData.appendChild(progressElement);
+		rowElement.appendChild(tableData);
 
+		tableData = document.createElement("td");
 		var statusElement = document.createElement("div");
 		statusElement.innerHTML = test.status;
+		tableData.appendChild(statusElement);
+		rowElement.appendChild(tableData);
 
 		startButton.addEventListener('click', function(){
 			if (test.status == "init"){
@@ -86,11 +99,6 @@ window.addEventListener('load', function(){
 				test.start();
 			}
 		});
-
-		rowElement.appendChild(startButton);
-		rowElement.appendChild(nameElement);
-		rowElement.appendChild(progressElement);
-		rowElement.appendChild(statusElement);
 
 		return rowElement;
 	}
