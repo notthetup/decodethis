@@ -3,6 +3,8 @@ function Test (testFileJSON, audioContext){
 	if (!testFileJSON)
 		return;
 
+	testFileJSON.status = "Untested";
+
 	this.data = testFileJSON;
 	this.onFinish = null;
 	this.onProgress = null;
