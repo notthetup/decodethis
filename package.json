@@ -2,7 +2,7 @@
   "name": "decodethis",
   "version": "0.1.0",
   "description": "Test your browsers' WebAudio Decoder",
-  "main": "app.min.js",
+  "main": "index.html",
   "scripts": {
     "test": "test"
   },
@@ -21,12 +21,15 @@
     "url": "https://github.com/notthetup/decodethis/issues"
   },
   "devDependencies": {
-    "browserify": "~4.1.11",
-    "gulp": "~3.8.1",
-    "gulp-concat": "^2.2.0",
-    "gulp-connect": "^2.0.5",
-    "gulp-jshint": "^1.6.3",
-    "gulp-plumber": "^0.6.3",
-    "gulp-uglify": "^0.3.0"
+    "browserify": "~5.0.2",
+    "gulp": "~3.8.6",
+    "gulp-webserver": "^0.4.0",
+    "gulp-connect": "^2.0.6",
+    "gulp-jshint": "^1.7.1",
+    "gulp-plumber": "^0.6.4",
+    "gulp-uglify": "^0.3.1"
+  },
+  "dependencies": {
+    "sox": "^0.1.0"
   }
 }

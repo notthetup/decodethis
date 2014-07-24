@@ -1,6 +1,6 @@
 window.addEventListener('load', function(){
 
-	var audioPath = "audio/";
+	var audioPath = "public/audio/";
 	var indexFile = "files.json";
 	window.AudioContext = window.AudioContext || window.webkitAudioContext;
 	var audioContext = new window.AudioContext();
