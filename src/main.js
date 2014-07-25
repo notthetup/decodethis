@@ -24,6 +24,7 @@ window.addEventListener('load', function(){
 		});
 
 		ractive.on('starttest', function(event, index){
+			// Disable Test Button
 			var test = tests[index];
 
 			test.onFinish = function (error, buffer){
