@@ -34,6 +34,7 @@ window.addEventListener('load', function(){
 					ractive.set(statusPath,error.toString());
 				}else{
 					ractive.set(statusPath,"Passed");
+
 				}
 			};
 			test.start();

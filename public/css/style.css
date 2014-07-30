@@ -1,23 +1,22 @@
-html,body{
-	height: 100%;
-	margin: 0;
-	background-color: #E5E5E5;
-	font-family: 'RobotoDraft', sans-serif;
-}
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: sans-serif; }
 
-.test {
-	background-color: #ccc;
-	padding: 4px;
-	margin: 12px;
-}
+h1 {
+  text-align: center; }
 
-.test tr {
-	background-color: white;
-	padding: 12px;
-	margin: 4px;
-}
+.test-table {
+  width: 80%;
+  margin: 1em auto;
+  text-align: left;
+  border-collapse: collapse; }
+  .test-table th, .test-table td {
+    padding: 0.5em; }
+  .test-table th {
+    background-color: #93d2ea;
+    color: white; }
 
 test-tabs::shadow #results {
-	width: 40%;
-	max-width: initial;
-}
+  width: 40%;
+  max-width: initial; }
