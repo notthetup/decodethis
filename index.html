@@ -15,6 +15,7 @@
 
     <script src="public/js/vendor/ractive.min.js"></script>
     <script id="head" type="text/ractive">
+    <thead >
     <tr >
             <th>Test</th>
             <th>Description</th>
@@ -26,8 +27,9 @@
             <th>Channels</th>
             <th>Status</th>
         </tr>
+        </thead>
         {{#tests:i}}
-        <tr id={{filename}}>
+        <tr id={{data.filename}} class={{data.class}}>
             <td><button on-click='starttest:{{i}}'>▶</button></td>
             <td>{{data.description}}</td>
             <td>{{data.type}}</td>
@@ -51,6 +53,7 @@
 <![endif]-->
 
 <h1>Decode this!</h1>
+<h2>audio codec testing for nerds</h2>
 <table id="testlist" class="test-table"> </table>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

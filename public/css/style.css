@@ -1,22 +1,127 @@
+@import url("http://fonts.googleapis.com/css?family=Arvo|Raleway:400,700");
+@keyframes blink {
+  from {
+    background-color: #e0b505; }
+
+  to {
+    background-color: #fce482; } }
+@-webkit-keyframes blink {
+  from {
+    background-color: #e0b505; }
+
+  to {
+    background-color: #fce482; } }
+@-moz-keyframes blink {
+  from {
+    background-color: #e0b505; }
+
+  to {
+    background-color: #fce482; } }
+.testing {
+  background-color: #fce482;
+  -webkit-animation: blink 0.5s infinite alternate;
+  -moz-animation: blink 0.5s infinite alternate;
+  animation: blink 0.5s infinite alternate; }
+
+.passed {
+  background-color: #b7d968; }
+
+.failed {
+  background-color: #de4641; }
+
+* {
+  box-sizing: border-box; }
+
 html, body {
   height: 100%;
   margin: 0;
-  font-family: sans-serif; }
+  color: ligthen(#5e5f67, 30%);
+  font-family: "Raleway", sans-serif; }
+
+h1, h2 {
+  text-align: center;
+  font-family: "Arvo", serif;
+  margin: 0;
+  color: #53b7de; }
 
 h1 {
-  text-align: center; }
+  font-size: 3em;
+  margin: 0.5em 0 0 0; }
+
+h2 {
+  font-size: 1em;
+  margin: 0 0 2em 0;
+  color: #5e5f67; }
 
 .test-table {
   width: 80%;
   margin: 1em auto;
   text-align: left;
   border-collapse: collapse; }
+  .test-table tr {
+    border-bottom: 1px solid #e1e1e3; }
   .test-table th, .test-table td {
     padding: 0.5em; }
+  .test-table td:nth-of-type(1) {
+    width: 2%; }
+  .test-table td:nth-of-type(2) {
+    width: 18%; }
+  .test-table td:nth-of-type(3) {
+    width: 10%; }
+  .test-table td:nth-of-type(4) {
+    width: 8%; }
+  .test-table td:nth-of-type(5) {
+    width: 12%; }
+  .test-table td:nth-of-type(6) {
+    width: 12%; }
+  .test-table td:nth-of-type(7) {
+    width: 10%; }
+  .test-table td:nth-of-type(8) {
+    width: 5%; }
+  .test-table td:last-child {
+    width: 20%; }
   .test-table th {
-    background-color: #93d2ea;
+    background-color: #5e5f67;
     color: white; }
 
 test-tabs::shadow #results {
   width: 40%;
   max-width: initial; }
+
+@media (max-width: 1200px) {
+  .test-table {
+    width: 95%; } }
+@media (max-width: 800px) {
+  .test-table {
+    border: 1px solid #abacb3; }
+
+  thead {
+    display: none; }
+
+  th, td {
+    width: 100%; }
+
+  td {
+    display: block; }
+    td:before {
+      width: 50%;
+      font-weight: bold;
+      display: inline-block; }
+    td:nth-of-type(1):before {
+      content: "Test "; }
+    td:nth-of-type(2):before {
+      content: "Description "; }
+    td:nth-of-type(3):before {
+      content: "File Type "; }
+    td:nth-of-type(4):before {
+      content: "Bit Depth"; }
+    td:nth-of-type(5):before {
+      content: "Sampling "; }
+    td:nth-of-type(6):before {
+      content: "Length (msec) "; }
+    td:nth-of-type(7):before {
+      content: "kbps "; }
+    td:nth-of-type(8):before {
+      content: "Channels "; }
+    td:nth-of-type(9):before {
+      content: "Status "; } }

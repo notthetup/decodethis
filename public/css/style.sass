@@ -1,17 +1,66 @@
+@import url('http://fonts.googleapis.com/css?family=Arvo|Raleway:400,700')
+
 $red: #de4641
 $green: #b7d968
 $yellow: #fce482
 $blue: #7ec9e6
 $black: #060606
 $grey: #5e5f67
+$serif: 'Arvo', serif
+$sans: 'Raleway', sans-serif
+
+@keyframes blink
+	from
+		background-color: darken($yellow, 30%)
+	to
+		background-color: $yellow
+
+@-webkit-keyframes blink
+	from
+		background-color: darken($yellow, 30%)
+	to
+		background-color: $yellow
+
+@-moz-keyframes blink
+	from
+		background-color: darken($yellow, 30%)
+	to
+		background-color: $yellow
+
+.testing
+	background-color: $yellow
+	-webkit-animation: blink .5s infinite alternate
+	-moz-animation: blink .5s infinite alternate
+	animation: blink .5s infinite alternate
+
+.passed
+	background-color: $green
+
+.failed
+	background-color: $red
+*
+	box-sizing: border-box
 
 html, body
 	height: 100%
 	margin: 0
-	font-family: sans-serif
+	color: ligthen($grey, 30%)
+	font-family: $sans
+
+h1, h2
+	text-align: center
+	font-family: $serif
+	margin: 0
+	color: darken($blue, 10%)
 
 h1
-	text-align: center
+	font-size: 3em
+	margin: .5em 0 0 0
+
+h2
+	font-size: 1em
+	margin: 0 0 2em 0
+	color: $grey
 
 .test-table
 	width: 80%
@@ -19,13 +68,68 @@ h1
 	text-align: left
 	border-collapse: collapse
 	tr
-		// background-color: red
+		border-bottom: 1px solid lighten($grey, 50%)
 	th, td
 		padding: .5em
+	td
+		&:nth-of-type(1)
+			width: 2%
+		&:nth-of-type(2)
+			width: 18%
+		&:nth-of-type(3)
+			width: 10%
+		&:nth-of-type(4)
+			width: 8%
+		&:nth-of-type(5)
+			width: 12%
+		&:nth-of-type(6)
+			width: 12%
+		&:nth-of-type(7)
+			width: 10%
+		&:nth-of-type(8)
+			width: 5%
+		&:last-child
+			width: 20%
 	th
-		background-color: lighten($blue, 5%)
+		background-color: $grey
 		color: white
 
 test-tabs::shadow #results
 	width: 40%
 	max-width: initial
+
+@media (max-width: 1200px)
+	.test-table
+		width: 95%
+
+@media (max-width: 800px)
+	.test-table
+		border: 1px solid lighten($grey, 30%)
+	thead
+		display: none
+	th, td
+		width: 100%
+	td
+		display: block
+		&:before
+			width: 50%
+			font-weight: bold
+			display: inline-block
+		&:nth-of-type(1):before
+			content: "Test "
+		&:nth-of-type(2):before
+			content: "Description "
+		&:nth-of-type(3):before
+			content: "File Type "
+		&:nth-of-type(4):before
+			content: "Bit Depth"
+		&:nth-of-type(5):before
+			content: "Sampling "
+		&:nth-of-type(6):before
+			content: "Length (msec) "
+		&:nth-of-type(7):before
+			content: "kbps "
+		&:nth-of-type(8):before
+			content: "Channels "
+		&:nth-of-type(9):before
+			content: "Status "

@@ -26,17 +26,20 @@ window.addEventListener('load', function(){
 		ractive.on('starttest', function(event, index){
 			// Disable Test Button
 			var test = tests[index];
+			var dataPath = 'tests.' + index + ".data";
 
 			test.onFinish = function (error, buffer){
 				console.log("done", test);
-				var statusPath = 'tests.' + index + ".data.status";
 				if (error){
-					ractive.set(statusPath,error.toString());
+					ractive.set(dataPath+".status",error.toString());
+					ractive.set(dataPath+".class","failed");
 				}else{
-					ractive.set(statusPath,"Passed");
-
+					ractive.set(dataPath+".status","Passed");
+					ractive.set(dataPath+".class","passed");
 				}
 			};
+			ractive.set(dataPath+".status","Testing");
+			ractive.set(dataPath+".class","testing");
 			test.start();
 		});
 
