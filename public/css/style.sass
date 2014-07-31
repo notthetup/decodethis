@@ -11,27 +11,27 @@ $sans: 'Raleway', sans-serif
 
 @keyframes blink
 	from
-		background-color: darken($yellow, 30%)
-	to
 		background-color: $yellow
+	to
+		background-color: darken($yellow, 30%)
 
 @-webkit-keyframes blink
 	from
-		background-color: darken($yellow, 30%)
-	to
 		background-color: $yellow
+	to
+		background-color: darken($yellow, 30%)
 
 @-moz-keyframes blink
 	from
-		background-color: darken($yellow, 30%)
-	to
 		background-color: $yellow
+	to
+		background-color: darken($yellow, 30%)
 
 .testing
 	background-color: $yellow
-	-webkit-animation: blink .5s infinite alternate
-	-moz-animation: blink .5s infinite alternate
-	animation: blink .5s infinite alternate
+	-webkit-animation: blink 1s 1s linear infinite alternate
+	-moz-animation: blink 1s 1s linear infinite alternate
+	animation: blink 1s 1s linear infinite alternate
 
 .passed
 	background-color: $green
@@ -111,25 +111,35 @@ test-tabs::shadow #results
 		width: 100%
 	td
 		display: block
+		width: 100%
 		&:before
 			width: 50%
 			font-weight: bold
 			display: inline-block
 		&:nth-of-type(1):before
 			content: "Test "
+			width: 50%
 		&:nth-of-type(2):before
 			content: "Description "
+			width: 50%
 		&:nth-of-type(3):before
 			content: "File Type "
+			width: 50%
 		&:nth-of-type(4):before
 			content: "Bit Depth"
+			width: 50%
 		&:nth-of-type(5):before
 			content: "Sampling "
+			width: 50%
 		&:nth-of-type(6):before
 			content: "Length (msec) "
+			width: 50%
 		&:nth-of-type(7):before
 			content: "kbps "
+			width: 50%
 		&:nth-of-type(8):before
 			content: "Channels "
+			width: 50%
 		&:nth-of-type(9):before
 			content: "Status "
+			width: 50%
