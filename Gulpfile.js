@@ -34,7 +34,7 @@ gulp.task('style', function() {
     .src(paths.style)
     .pipe(plumber())
     .pipe(sass())
-    // .pipe(minifyCSS())
+    .pipe(minifyCSS())
     .pipe(gulp.dest('public/css'));
 });
 

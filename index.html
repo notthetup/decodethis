@@ -30,7 +30,7 @@
         </thead>
         {{#tests:i}}
         <tr id={{data.filename}} class={{data.class}}>
-            <td><button on-click='starttest:{{i}}'>▶</button></td>
+            <td><button on-click='starttest:{{i}}' disabled={{data.button}}><span class="action">{{data.action}}</span></button></td>
             <td>{{data.description}}</td>
             <td>{{data.type}}</td>
             <td>{{data.bitdepth}}</td>
