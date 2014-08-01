@@ -7,7 +7,7 @@ function Test (testFileJSON, audioContext){
 
 
 	this.data = testFileJSON;
-	this.data.class = "untested"
+	this.data.class = "untested";
 	this.onFinish = null;
 	this.onProgress = null;
 	this.onReset = null;

@@ -17,18 +17,6 @@
 
   to {
     background-color: #e0b505; } }
-.testing {
-  background-color: #fce482;
-  -webkit-animation: blink 1s 1s linear infinite alternate;
-  -moz-animation: blink 1s 1s linear infinite alternate;
-  animation: blink 1s 1s linear infinite alternate; }
-
-.passed {
-  background-color: #b7d968; }
-
-.failed {
-  background-color: #de4641; }
-
 * {
   box-sizing: border-box; }
 
@@ -42,7 +30,7 @@ h1, h2 {
   text-align: center;
   font-family: "Arvo", serif;
   margin: 0;
-  color: #53b7de; }
+  color: #2184aa; }
 
 h1 {
   font-size: 3em;
@@ -84,6 +72,18 @@ h2 {
     background-color: #5e5f67;
     color: white; }
 
+.testing {
+  background-color: #fce482;
+  -webkit-animation: blink 1s 1s linear infinite alternate;
+  -moz-animation: blink 1s 1s linear infinite alternate;
+  animation: blink 1s 1s linear infinite alternate; }
+
+.passed {
+  background-color: #b7d968; }
+
+.failed {
+  background-color: #de4641; }
+
 test-tabs::shadow #results {
   width: 40%;
   max-width: initial; }
@@ -94,44 +94,58 @@ test-tabs::shadow #results {
 @media (max-width: 800px) {
   .test-table {
     border: 1px solid #abacb3; }
-
-  thead {
-    display: none; }
-
-  th, td {
-    width: 100%; }
-
-  td {
-    display: block;
-    width: 100%; }
-    td:before {
-      width: 50%;
-      font-weight: bold;
-      display: inline-block; }
-    td:nth-of-type(1):before {
-      content: "Test ";
-      width: 50%; }
-    td:nth-of-type(2):before {
-      content: "Description ";
-      width: 50%; }
-    td:nth-of-type(3):before {
-      content: "File Type ";
-      width: 50%; }
-    td:nth-of-type(4):before {
-      content: "Bit Depth";
-      width: 50%; }
-    td:nth-of-type(5):before {
-      content: "Sampling ";
-      width: 50%; }
-    td:nth-of-type(6):before {
-      content: "Length (msec) ";
-      width: 50%; }
-    td:nth-of-type(7):before {
-      content: "kbps ";
-      width: 50%; }
-    td:nth-of-type(8):before {
-      content: "Channels ";
-      width: 50%; }
-    td:nth-of-type(9):before {
-      content: "Status ";
-      width: 50%; } }
+    .test-table thead {
+      display: none; }
+    .test-table th, .test-table td {
+      width: 100%; }
+    .test-table td {
+      display: block;
+      width: 100%; }
+      .test-table td:before {
+        font-weight: bold;
+        display: inline-block; }
+      .test-table td:nth-of-type(1) {
+        width: 100%; }
+        .test-table td:nth-of-type(1):before {
+          content: "Test ";
+          width: 50%; }
+      .test-table td:nth-of-type(2) {
+        width: 100%; }
+        .test-table td:nth-of-type(2):before {
+          content: "Description ";
+          width: 50%; }
+      .test-table td:nth-of-type(3) {
+        width: 100%; }
+        .test-table td:nth-of-type(3):before {
+          content: "File Type ";
+          width: 50%; }
+      .test-table td:nth-of-type(4) {
+        width: 100%; }
+        .test-table td:nth-of-type(4):before {
+          content: "Bit Depth";
+          width: 50%; }
+      .test-table td:nth-of-type(5) {
+        width: 100%; }
+        .test-table td:nth-of-type(5):before {
+          content: "Sampling ";
+          width: 50%; }
+      .test-table td:nth-of-type(6) {
+        width: 100%; }
+        .test-table td:nth-of-type(6):before {
+          content: "Length (msec)";
+          width: 50%; }
+      .test-table td:nth-of-type(7) {
+        width: 100%; }
+        .test-table td:nth-of-type(7):before {
+          content: "kbps ";
+          width: 50%; }
+      .test-table td:nth-of-type(8) {
+        width: 100%; }
+        .test-table td:nth-of-type(8):before {
+          content: "Channels ";
+          width: 50%; }
+      .test-table td:nth-of-type(9) {
+        width: 100%; }
+        .test-table td:nth-of-type(9):before {
+          content: "Status ";
+          width: 50%; } }
