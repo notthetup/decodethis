@@ -13,6 +13,11 @@ $sans: 'Raleway', sans-serif
 	-o-transform: rotate($amount)
 	transform: rotate($amount)
 
+@mixin circle()
+	-webkit-animation: circling 1s linear infinite
+	-moz-animation: circling 1s linear infinite
+	animation: circling 1s linear infinite
+
 @keyframes blink
 	from
 		background-color: $yellow
@@ -86,10 +91,25 @@ button
 	&:disabled:hover
 		background: darken($blue, 30%)
 
-
-.test-table
+.content
 	width: 80%
 	margin: 1em auto
+	position: relative
+
+.play-all
+	position: absolute
+	left: 0
+	top: 0
+	padding: .5em 2em
+	&:after
+		display: block
+		content: "test all"
+		font-size: .6em
+
+.action-all
+	font-size: 1.4em
+
+.test-table
 	text-align: left
 	border-collapse: collapse
 	tr
@@ -119,15 +139,16 @@ button
 		background-color: $grey
 		color: white
 
+.spin
+	@include circle()
+
 .testing
 	background-color: $yellow
 	-webkit-animation: blink 1s 1s linear infinite alternate
 	-moz-animation: blink 1s 1s linear infinite alternate
 	animation: blink 1s 1s linear infinite alternate
 	.action
-		-webkit-animation: circling 1s linear infinite
-		-moz-animation: circling 1s linear infinite
-		animation: circling 1s linear infinite
+		@include circle()
 
 .passed
 	background-color: $green
@@ -141,12 +162,17 @@ test-tabs::shadow #results
 
 @media (max-width: 1200px)
 	.test-table
-		width: 95%
+		width: 100%
 
 @media (max-width: 800px)
+	.content
+		width: 90%
 	button
 		font-size: 1.5em
 		width: 100%
+	.play-all
+		position: relative
+		margin-bottom: 1em
 	.test-table
 		border: 1px solid lighten($grey, 30%)
 		thead

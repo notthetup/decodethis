@@ -10,14 +10,12 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='public/css/style.css' rel='stylesheet' type='text/css'>
-
-    <script src="public/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-
+    <style id="testAllOveride"></style>
     <script src="public/js/vendor/ractive.min.js"></script>
     <script id="head" type="text/ractive">
     <thead >
     <tr >
-            <th>Test</th>
+            <th></th>
             <th>Description</th>
             <th>File Type</th>
             <th>Bit Depth</th>
@@ -52,9 +50,12 @@
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 
-<h1>Decode this!</h1>
-<h2>audio codec testing for nerds</h2>
-<table id="testlist" class="test-table"> </table>
+<div class="content">
+    <h1>Decode this!</h1>
+    <h2>audio codec testing for nerds</h2>
+    <button class="play-all" id="playall"><span>▶</span></button>
+    <table id="testlist" class="test-table"> </table>
+</div>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>
