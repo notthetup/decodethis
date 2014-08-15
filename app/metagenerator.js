@@ -5,7 +5,7 @@ var path = require('path');
 
 var audioDir = "public/audio/";
 var metadataJSON = "files.json";
-var acceptedExtensions = ['mp3','wav','ogg','aac','mp4','webm'];
+var acceptedExtensions = ['mp3','wav','ogg','aac','mp4','webm', 'aiff'];
 
 var mediainfo = "mediainfo";
 var mediaInfoGeneralArgs = " --Inform=\"General; title:%Title%\" ";

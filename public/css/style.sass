@@ -1,0 +1,229 @@
+@import url('http://fonts.googleapis.com/css?family=Arvo|Raleway:400,700')
+$red: #de4641
+$green: #b7d968
+$yellow: #fce482
+$blue: #7ec9e6
+$black: #060606
+$grey: #5e5f67
+$serif: 'Arvo', serif
+$sans: 'Raleway', sans-serif
+
+@mixin rotate($amount)
+	-webkit-transform: rotate($amount)
+	-o-transform: rotate($amount)
+	transform: rotate($amount)
+
+@mixin circle()
+	-webkit-animation: circling 1s linear infinite
+	-moz-animation: circling 1s linear infinite
+	animation: circling 1s linear infinite
+
+@keyframes blink
+	from
+		background-color: $yellow
+	to
+		background-color: darken($yellow, 30%)
+
+@-webkit-keyframes blink
+	from
+		background-color: $yellow
+	to
+		background-color: darken($yellow, 30%)
+
+@-moz-keyframes blink
+	from
+		background-color: $yellow
+	to
+		background-color: darken($yellow, 30%)
+
+@keyframes circling
+	from
+		@include rotate(0)
+	to
+		@include rotate(360deg)
+
+@-webkit-keyframes circling
+	from
+		@include rotate(0)
+	to
+		@include rotate(360deg)
+
+@-moz-keyframes circling
+	from
+		@include rotate(0)
+	to
+		@include rotate(360deg)
+
+*
+	box-sizing: border-box
+
+html, body
+	height: 100%
+	margin: 0
+	color: ligthen($grey, 30%)
+	font-family: $sans
+
+h1, h2
+	text-align: center
+	font-family: $serif
+	margin: 0
+	color: darken($blue, 30%)
+
+h1
+	font-size: 3em
+	margin: .5em 0 0 0
+
+h2
+	font-size: 1em
+	margin: 0 0 2em 0
+	color: $grey
+
+button
+	background: darken($blue, 30%)
+	border: none
+	padding: .2em .7em
+	font-size: 1.5em
+	color: white
+	cursor: pointer
+	outline: none
+	&:hover
+		background: darken($blue, 20%)
+	&:disabled:hover
+		background: darken($blue, 30%)
+
+.content
+	width: 80%
+	margin: 1em auto
+	position: relative
+
+.play-all
+	position: absolute
+	left: 0
+	top: 0
+	padding: .5em 2em
+	&:after
+		display: block
+		content: "test all"
+		font-size: .6em
+
+.action-all
+	font-size: 1.4em
+
+.test-table
+	text-align: left
+	border-collapse: collapse
+	tr
+		border-bottom: 1px solid lighten($grey, 50%)
+	th, td
+		padding: .5em
+	td
+		&:nth-of-type(1)
+			width: 2%
+		&:nth-of-type(2)
+			width: 18%
+		&:nth-of-type(3)
+			width: 12%
+		&:nth-of-type(4)
+			width: 8%
+		&:nth-of-type(5)
+			width: 12%
+		&:nth-of-type(6)
+			width: 12%
+		&:nth-of-type(7)
+			width: 10%
+		&:nth-of-type(8)
+			width: 5%
+		&:last-child
+			width: 18%
+	th
+		background-color: $grey
+		color: white
+
+.spin
+	@include circle()
+
+.testing
+	background-color: $yellow
+	-webkit-animation: blink 1s 1s linear infinite alternate
+	-moz-animation: blink 1s 1s linear infinite alternate
+	animation: blink 1s 1s linear infinite alternate
+	.action
+		@include circle()
+
+.passed
+	background-color: $green
+
+.failed
+	background-color: $red
+
+test-tabs::shadow #results
+	width: 40%
+	max-width: initial
+
+@media (max-width: 1200px)
+	.test-table
+		width: 100%
+
+@media (max-width: 800px)
+	.content
+		width: 90%
+	button
+		font-size: 1.5em
+		width: 100%
+	.play-all
+		position: relative
+		margin-bottom: 1em
+	.test-table
+		border: 1px solid lighten($grey, 30%)
+		thead
+			display: none
+		th, td
+			width: 100%
+		td
+			display: block
+			width: 100%
+			&:before
+				font-weight: bold
+				display: inline-block
+			&:nth-of-type(1)
+				width: 100%
+			&:nth-of-type(2)
+				width: 100%
+				&:before
+					content: "Description "
+					width: 50%
+			&:nth-of-type(3)
+				width: 100%
+				&:before
+					content: "File Type "
+					width: 50%
+			&:nth-of-type(4)
+				width: 100%
+				&:before
+					content: "Bit Depth"
+					width: 50%
+			&:nth-of-type(5)
+				width: 100%
+				&:before
+					content: "Sampling "
+					width: 50%
+			&:nth-of-type(6)
+				width: 100%
+				&:before
+					content: "Length (msec)"
+					width: 50%
+			&:nth-of-type(7)
+				width: 100%
+				&:before
+					content: "kbps "
+					width: 50%
+			&:nth-of-type(8)
+				width: 100%
+				&:before
+					content: "Channels "
+					width: 50%
+			&:nth-of-type(9)
+				width: 100%
+				&:before
+					content: "Status "
+					width: 50%
