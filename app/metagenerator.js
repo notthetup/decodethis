@@ -8,7 +8,7 @@ var metadataJSON = "files.json";
 var acceptedExtensions = ['mp3','wav','ogg','aac','mp4','webm', 'aiff'];
 
 var mediainfo = "mediainfo";
-var mediaInfoGeneralArgs = " --Inform=\"General; title:%Title%\" ";
+var mediaInfoGeneralArgs = " --Inform=\"General; title:%Title%, extension:%FileExtension%\" ";
 var mediaInfoAudioArgs = " --Inform=\"Audio; duration:%Duration%, bitrateMode:%BitRate_Mode%, channels:%Channels%, bitrate:%BitRate%, format:%Format%, profile:%Format_Profile%, bitdepth:%BitDepth%, samplingRate:%SamplingRate%, library:%Encoded_Library%\" ";
 
 var metadata = {files:[]};
@@ -36,7 +36,7 @@ fs.readdir(audioDir,function(err,files){
 					metadata.files.push({
 						"filename" : file,
 						"description" : generalData.title,
-						"type" : mediaInfoData.format + (mediaInfoData.profile ? (" - " + mediaInfoData.profile) : ""),
+						"type" : computeType(generalData, mediaInfoData),
 						"bitdepth" : mediaInfoData.bitdepth || '-',
 						"samplingrate" : mediaInfoData.samplingRate,
 						"length" : mediaInfoData.duration,
@@ -58,3 +58,13 @@ fs.readdir(audioDir,function(err,files){
 	});
 });
 
+function computeType(generalData, mediaInfoData){
+
+	var type = generalData.extension;
+
+	if (type === "mp4"){
+		type = type +  " ("+ mediaInfoData.format + ")";
+	}
+
+	return type;
+}
