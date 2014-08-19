@@ -9,7 +9,7 @@ var acceptedExtensions = ['mp3','wav','ogg','aac','mp4','webm', 'aiff'];
 
 var mediainfo = "mediainfo";
 var mediaInfoGeneralArgs = " --Inform=\"General; title:%Title%\" ";
-var mediaInfoAudioArgs = " --Inform=\"Audio; duration:%Duration%, bitrateMode:%BitRate_Mode%, channels:%Channels%, bitrate:%BitRate%, format:%Format%, bitdepth:%BitDepth%, samplingRate:%SamplingRate%\" ";
+var mediaInfoAudioArgs = " --Inform=\"Audio; duration:%Duration%, bitrateMode:%BitRate_Mode%, channels:%Channels%, bitrate:%BitRate%, format:%Format%, profile:%Format_Profile%, bitdepth:%BitDepth%, samplingRate:%SamplingRate%, library:%Encoded_Library%\" ";
 
 var metadata = {files:[]};
 
@@ -36,12 +36,13 @@ fs.readdir(audioDir,function(err,files){
 					metadata.files.push({
 						"filename" : file,
 						"description" : generalData.title,
-						"type" : mediaInfoData.format,
-						"bitdepth" : mediaInfoData.bitdepth,
+						"type" : mediaInfoData.format + (mediaInfoData.profile ? (" - " + mediaInfoData.profile) : ""),
+						"bitdepth" : mediaInfoData.bitdepth || '-',
 						"samplingrate" : mediaInfoData.samplingRate,
 						"length" : mediaInfoData.duration,
 						"kbps" : (parseInt(mediaInfoData.bitrate)/1000 + ( (mediaInfoData.bitrateMode=== "VBR") ? " (VBR)" : "")),
-						"channels" : mediaInfoData.channels
+						"channels" : mediaInfoData.channels,
+						"library" : mediaInfoData.library
 					});
 					if(fileCount <= 0 ){
 
