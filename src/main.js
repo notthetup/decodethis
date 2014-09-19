@@ -61,7 +61,7 @@ window.addEventListener('load', function(){
 		var dataPath = 'tests.' + index + ".data";
 
 		test.onFinish = function (error, buffer){
-			console.log("done", index);
+			//console.log("done", index);
 			if (error){
 				ractive.set(dataPath+".status",error.toString());
 				ractive.set(dataPath+".class","failed");
@@ -103,8 +103,7 @@ window.addEventListener('load', function(){
 	function createTestForFile(fileData){
 		fileData.path = audioPath;
 		var test = new TestCase(fileData, audioContext);
-		console.log(test);
-
+		//console.log(test);
 		return test;
 	}
 });
