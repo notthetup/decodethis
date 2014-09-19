@@ -96,11 +96,13 @@ button
 	margin: 1em auto
 	position: relative
 
-.logo
-	width: 60px
-	position: absolute
-	right: 0px
-	top: 0px
+.title:before
+	content: ""
+	width: 30px
+	display: inline-block
+	height: 30px
+	background: url("../img/logo.svg") no-repeat 0 0
+	background-size: 100%
 
 .play-all
 	position: absolute
@@ -237,9 +239,3 @@ test-tabs::shadow #results
 @media (max-width: 720px)
 	.github-ribbon
 		display: none
-	.title, .tagline
-		text-align: left
-	.title
-		font-size: 2em
-	.tagline
-		font-size: .8em

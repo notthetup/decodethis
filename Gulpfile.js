@@ -49,4 +49,4 @@ gulp.task('watch', function() {
   gulp.watch(paths.style, [ 'style' ]);
 });
 
-gulp.task('default', [ 'lint','compile','webserver', 'watch' ]);
+gulp.task('default', [ 'lint', 'compile', 'style', 'webserver', 'watch' ]);
