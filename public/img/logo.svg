@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="496px" height="496px" viewBox="0 0 496 496" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <title>Untitled 2</title>
+    <description>Created with Sketch (http://www.bohemiancoding.com/sketch)</description>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="untitled" sketch:type="MSLayerGroup">
+            <g id="icomoon-ignore" stroke="#449FDB" fill="#000000" opacity="0" sketch:type="MSShapeGroup">
+                <path id="Shape"></path>
+            </g>
+            <path d="M312.061,0 C210.707,0 128.231,82.46 128.231,183.876 C128.231,208.149 133.191,231.167 141.732,252.355 L-2.84217094e-14,394.102 L101.835,495.999 L243.629,354.143 C264.818,362.745 287.835,367.706 312.046,367.706 C413.462,367.706 495.984,285.246 495.984,183.907 C496,82.46 413.477,0 312.061,0 L312.061,0 Z M312.061,305.769 C244.915,305.769 190.185,251.038 190.185,183.908 C190.185,116.7 244.916,61.969 312.061,61.969 C379.331,61.969 434.061,116.699 434.061,183.908 C434.061,251.023 379.331,305.769 312.06,305.769 L312.061,305.769 Z" id="Shape" fill="#2184AA" sketch:type="MSShapeGroup"></path>
+        </g>
+        <text id="1011" sketch:type="MSTextLayer" font-family="Arial Black" font-size="90" font-weight="686" fill="#2184AA">
+            <tspan x="193" y="211">1011</tspan>
+        </text>
+    </g>
+</svg>

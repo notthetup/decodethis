@@ -96,6 +96,12 @@ button
 	margin: 1em auto
 	position: relative
 
+.logo
+	width: 60px
+	position: absolute
+	right: 0px
+	top: 0px
+
 .play-all
 	position: absolute
 	left: 0
@@ -227,3 +233,13 @@ test-tabs::shadow #results
 				&:before
 					content: "Status "
 					width: 50%
+
+@media (max-width: 720px)
+	.github-ribbon
+		display: none
+	.title, .tagline
+		text-align: left
+	.title
+		font-size: 2em
+	.tagline
+		font-size: .8em
