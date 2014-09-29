@@ -35,7 +35,7 @@ fs.readdir(audioDir,function(err,files){
 					var mediaInfoData = JSON.parse('{"'+audioResult.replace(/(\:)/g,'"$1"').replace(/(, )/g,'"$1"').trim() + '"}');
 					metadata.files.push({
 						"filename" : file,
-						"description" : generalData.title,
+						"description" : generalData.title || file,
 						"type" : computeType(generalData, mediaInfoData),
 						"bitdepth" : mediaInfoData.bitdepth || '-',
 						"samplingrate" : mediaInfoData.samplingRate,
