@@ -7,6 +7,8 @@ var sass = require('gulp-ruby-sass');
 var minifyCSS = require('gulp-minify-css');
 var plumber = require('gulp-plumber');
 
+var metagenerator = require('./app/metagenerator.js');
+
 var paths = {
   scripts: ['src/*.js'],
   public : ['public/'],
@@ -47,6 +49,10 @@ gulp.task('webserver', function() {
 gulp.task('watch', function() {
   gulp.watch(paths.scripts, [ 'lint','compile']);
   gulp.watch(paths.style, [ 'style' ]);
+});
+
+gulp.task('generate', function(cb){
+  metagenerator(cb);
 });
 
 gulp.task('default', [ 'lint', 'compile', 'style', 'webserver', 'watch' ]);
