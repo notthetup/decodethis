@@ -32,10 +32,7 @@ gulp.task('lint', function() {
 });
 
 gulp.task('style', function() {
-  return gulp
-    .src(paths.style)
-    .pipe(plumber())
-    .pipe(sass())
+  return sass(paths.style, { style: 'expanded' })
     .pipe(minifyCSS())
     .pipe(gulp.dest('public/css'));
 });
