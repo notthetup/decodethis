@@ -13,6 +13,21 @@
     <link href='public/css/style.css' rel='stylesheet' type='text/css'>
     <style id="testAllOveride"></style>
     <script src="public/js/vendor/ractive.min.js"></script>
+    <script id="result-template" type="text/ractive">
+      <div>
+        <h2>Test Results:</h2>
+        <p>
+          <strong>Success Count:</strong>
+          {{success}}
+          ({{(success / count * 100 || 0).toFixed(3)}}%)
+        </p>
+        <p>
+          <strong>Failure Count:</strong>
+          {{failure}}
+          ({{(failure / count * 100 || 0).toFixed(3)}}%)
+        </p>
+      </div>
+    </script>
     <script id="head" type="text/ractive">
     <thead >
     <tr >
@@ -54,6 +69,8 @@
     <h1 class="title">Decode this!</h1>
     <h2 class="tagline">audio codec testing for nerds</h2>
     <button class="play-all" id="playall"><span>▶</span></button>
+    <br />
+    <div id="result-container"></div>
     <table id="testlist" class="test-table"> </table>
 </div>
 
