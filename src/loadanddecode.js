@@ -13,17 +13,22 @@ function loadanddecode(URL, onLoadCallback, onProgressCallback, audioContext){
         window.AudioContext = window.AudioContext || window.webkitAudioContext;
         audioContext = new AudioContext();
     }
+
     var request = new XMLHttpRequest();
     request.open('GET', URL, true);
     request.responseType = 'arraybuffer';
     request.onload = function () {
+        var startTime = Date.now();
         if (request.status === 200 || request.status === 304){
             audioContext.decodeAudioData(request.response, function(buffer){
-                if (typeof onLoadCallback === 'function')
-                    onLoadCallback(null, buffer);
+                if (typeof onLoadCallback === 'function'){
+                  var timeTaken = Date.now() - startTime;
+                  onLoadCallback(null, {buffer: buffer, timeTaken: timeTaken});
+                }
             },function (){
-                if (typeof onLoadCallback === 'function')
-                    onLoadCallback(new Error("Decoding Error"), null);
+                if (typeof onLoadCallback === 'function'){
+                  onLoadCallback(new Error("Decoding Error"), null);
+                }
             });
         }else{
             if (typeof onLoadCallback === 'function'){

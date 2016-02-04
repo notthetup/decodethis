@@ -17,10 +17,10 @@ function TestCase (testFileJSON, audioContext){
 	this.start = function(){
 		self = this;
 		this.status = "running";
-		loadanddecode(this.data.path + this.data.filename, function (error, buffer){
+		loadanddecode(this.data.path + this.data.filename, function (error, response){
 			self.status = "complete";
 			if (typeof self.onFinish === 'function'){
-				self.onFinish(error, buffer);
+				self.onFinish(error, response);
 			}
 		}, function (event){
 			if (event.lengthComputable) {
@@ -42,4 +42,3 @@ function TestCase (testFileJSON, audioContext){
 
 	this.status = "init";
 }
-

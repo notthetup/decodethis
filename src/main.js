@@ -70,17 +70,19 @@ window.addEventListener('load', function(){
 		var test = tests[index];
 		var dataPath = 'tests.' + index + ".data";
 
-		test.onFinish = function (error, buffer){
+		test.onFinish = function (error, response){
 			//console.log("done", index);
 			results.count++;
 			if (error){
 				ractive.set(dataPath+".status",error.toString());
 				ractive.set(dataPath+".class","failed");
+				ractive.set(dataPath+".timetaken", '');
 				ractive.set(dataPath+".action","✗");
 				results.failure++;
 			}else{
 				ractive.set(dataPath+".status","Passed");
 				ractive.set(dataPath+".class","passed");
+				ractive.set(dataPath+".timetaken",response.timeTaken);
 				ractive.set(dataPath+".action","✓");
 				results.success++;
 			}
@@ -91,6 +93,7 @@ window.addEventListener('load', function(){
 		};
 		ractive.set(dataPath+".status","Testing");
 		ractive.set(dataPath+".class","testing");
+		ractive.set(dataPath+".timetaken", '');
 		ractive.set(dataPath+".action","↻");
 		ractive.set(dataPath+".button","false");
 		test.start();
