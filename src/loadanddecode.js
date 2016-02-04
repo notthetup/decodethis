@@ -22,17 +22,16 @@ function loadanddecode(URL, onLoadCallback, onProgressCallback, audioContext){
         if (request.status === 200 || request.status === 304){
             audioContext.decodeAudioData(request.response, function(buffer){
                 if (typeof onLoadCallback === 'function'){
-                  var timeTaken = Date.now() - startTime;
-                  onLoadCallback(null, {buffer: buffer, timeTaken: timeTaken});
+                  onLoadCallback(null, {buffer: buffer, timeTaken: Date.now() - startTime});
                 }
             },function (){
                 if (typeof onLoadCallback === 'function'){
-                  onLoadCallback(new Error("Decoding Error"), null);
+                  onLoadCallback(new Error("Decoding Error"), {timeTaken: Date.now() - startTime});
                 }
             });
         }else{
             if (typeof onLoadCallback === 'function'){
-                onLoadCallback(new Error("Loading Error : " + request.status), null);
+                onLoadCallback(new Error("Loading Error : " + request.status), {timeTaken: Date.now() - startTime});
             }
         }
     };
