@@ -76,7 +76,8 @@ window.addEventListener('load', function(){
 			if (error){
 				ractive.set(dataPath+".status",error.toString());
 				ractive.set(dataPath+".class","failed");
-				ractive.set(dataPath+".timetaken", '');
+				ractive.set(dataPath+".timetaken", response &&
+					Number.isFinite(response.timeTaken) ? response.timeTaken : '');
 				ractive.set(dataPath+".action","✗");
 				results.failure++;
 			}else{
