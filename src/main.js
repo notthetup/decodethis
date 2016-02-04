@@ -9,6 +9,11 @@ window.addEventListener('load', function(){
 	var titles;
 	var tests = [];
 	var testData = [];
+	var results = {
+		count: 0,
+		success: 0,
+		failure: 0
+	};
 
 	// Fetch datafile and create tests.
 	xhrLoadJSON(audioPath + indexFile, function (jsonData){
@@ -16,6 +21,11 @@ window.addEventListener('load', function(){
 			el: "testlist",
 			template: '#head',
 			data: { tests: tests}
+		});
+		ractiveResults = new Ractive({
+			el: 'result-container',
+			template: '#result-template',
+			data: results
 		});
 
 		if (typeof jsonData === 'string'){
@@ -62,15 +72,19 @@ window.addEventListener('load', function(){
 
 		test.onFinish = function (error, buffer){
 			//console.log("done", index);
+			results.count++;
 			if (error){
 				ractive.set(dataPath+".status",error.toString());
 				ractive.set(dataPath+".class","failed");
 				ractive.set(dataPath+".action","✗");
+				results.failure++;
 			}else{
 				ractive.set(dataPath+".status","Passed");
 				ractive.set(dataPath+".class","passed");
 				ractive.set(dataPath+".action","✓");
+				results.success++;
 			}
+			ractiveResults.set(results);
 			if (typeof finishCallback === 'function'){
 				finishCallback(index);
 			}
@@ -107,4 +121,3 @@ window.addEventListener('load', function(){
 		return test;
 	}
 });
-
