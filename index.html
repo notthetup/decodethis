@@ -46,7 +46,7 @@
         {{#tests:i}}
         <tr id={{data.filename}} class={{data.class}}>
             <td><button on-click='starttest:{{i}}' disabled={{data.button}}><span class="action">{{data.action}}</span></button></td>
-            <td>{{data.description}}</td>
+            <td><a href="public/audio/{{data.filename}}">{{data.description}}<a/></td>
             <td>{{data.type}}</td>
             <td>{{data.bitdepth}}</td>
             <td>{{data.samplingrate}}</td>

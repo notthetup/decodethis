@@ -3,8 +3,8 @@ var webserver = require('gulp-webserver');
 var concat = require('gulp-concat');
 var jshint = require('gulp-jshint');
 var uglify = require('gulp-uglify');
-var sass = require('gulp-ruby-sass');
-var minifyCSS = require('gulp-minify-css');
+var sass = require('gulp-sass');
+var cleanCSS = require('gulp-clean-css');
 var plumber = require('gulp-plumber');
 
 var metagenerator = require('./app/metagenerator.js');
@@ -32,9 +32,10 @@ gulp.task('lint', function() {
 });
 
 gulp.task('style', function() {
-  return sass(paths.style, { style: 'expanded' })
-    .pipe(minifyCSS())
-    .pipe(gulp.dest('public/css'));
+  return gulp.src(paths.style)
+  .pipe(sass().on('error', sass.logError))
+  .pipe(cleanCSS())
+  .pipe(gulp.dest('public/css'));
 });
 
 gulp.task('webserver', function() {
