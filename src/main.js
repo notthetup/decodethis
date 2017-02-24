@@ -20,7 +20,8 @@ window.addEventListener('load', function(){
 		ractive = new Ractive({
 			el: "testlist",
 			template: '#head',
-			data: { tests: tests}
+			data: { tests: tests},
+			runTest: runTest
 		});
 		ractiveResults = new Ractive({
 			el: 'result-container',
@@ -36,6 +37,7 @@ window.addEventListener('load', function(){
 			var test = createTestForFile(titles);
 			tests.push(test);
 		});
+		ractive.update( 'tests' );
 
 		var playallBtn = document.getElementById('playall');
 		playallBtn.addEventListener('click', function() {
@@ -56,10 +58,6 @@ window.addEventListener('load', function(){
 			var styletag = document.getElementById('testAllOveride');
 			styletag.innerHTML = ".play-all:after{content: 'testing';}";
 			runTest(0, testCompleteCallback);
-		});
-
-		ractive.on('starttest', function(event, index){
-			runTest(index);
 		});
 
 		window.tests = tests;
